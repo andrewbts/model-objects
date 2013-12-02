@@ -207,6 +207,20 @@ public class ActuatorSet extends edu.berkeley.path.model_objects.jaxb.ActuatorSe
     // return casted list of actuators from JAXB base class
     return (List<Actuator>)(List<?>)super.getActuator();
   }
+  
+	/**
+	 * Get single actuator by numerical ID, if present. 
+	 * 
+	 * @param id Numerical actuator ID
+	 * @return Actuator with the specified ID if present, else null
+	 */
+	public Actuator getActuatorById(long id) {
+		for (Actuator act : getActuators()) {
+			if (act.getId() == id)
+				return act;
+		}
+		return null;
+	}
 
   /**
    * Get the object representing this actuator set type
