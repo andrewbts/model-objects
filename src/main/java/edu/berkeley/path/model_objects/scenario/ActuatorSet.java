@@ -223,6 +223,20 @@ public class ActuatorSet extends edu.berkeley.path.model_objects.jaxb.ActuatorSe
 	}
 
   /**
+   * Get single actuator by numerical original ID, if present.
+   *
+   * @param id Numerical original actuator ID
+   * @return Actuator with the specified ID if present, else null
+   */
+  public Actuator getActuatorByIdOriginal(String id) {
+    for (Actuator act : getActuators()) {
+      if (act.getActuatorIdOriginal().equals(id))
+        return act;
+      }
+      return null;
+  }
+
+  /**
    * Get the object representing this actuator set type
    *
    * @return ScenarioSetType Object which contains scenario set type information

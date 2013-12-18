@@ -38,6 +38,7 @@ public class Scenario extends edu.berkeley.path.model_objects.jaxb.Scenario {
   /** @y.exclude */  private Long fdSetId;
   /** @y.exclude */  private Long sensorSetId;
   /** @y.exclude */  private Long actuatorSetId;
+  /** @y.exclude */  private Long controllerSetId;
   /** @y.exclude */  private Long routeSetId;
 
   /**
@@ -250,6 +251,13 @@ public List<Network> getListOfNetworks() {
   }
 
   public Long getSplitRatioSetId() {
+    // if the split ratio set id is not set, try and get it from split ratio set
+    if (splitRatioSetId == null) {
+      SplitRatioSet splitRatioSet = getSplitRatioSet();
+      if (splitRatioSet != null) {
+        setSplitRatioSetId(splitRatioSet.getId());
+      }
+    }
     return splitRatioSetId;
   }
 
@@ -258,6 +266,13 @@ public List<Network> getListOfNetworks() {
   }
 
   public Long getDemandSetId() {
+    // if the demand set id is not set, try and get it from demand set
+    if (demandSetId == null) {
+      DemandSet demandSet = getDemandSet();
+      if (demandSet != null) {
+        setDemandSetId(demandSet.getId());
+      }
+    }
     return demandSetId;
   }
 
@@ -266,6 +281,13 @@ public List<Network> getListOfNetworks() {
   }
 
   public Long getFdSetId() {
+    // if the FD set id is not set, try and get it from FD set
+    if (fdSetId == null) {
+      FundamentalDiagramSet fdSet = getFundamentalDiagramSet();
+      if (fdSet != null) {
+        setFdSetId(fdSet.getId());
+      }
+    }
     return fdSetId;
   }
 
@@ -274,6 +296,13 @@ public List<Network> getListOfNetworks() {
   }
 
   public Long getSensorSetId() {
+    // if the sensor set id is not set, try and get it from sensor set
+    if (sensorSetId == null) {
+      SensorSet sensorSet = getSensorSet();
+      if (sensorSet != null) {
+        setSensorSetId(sensorSet.getId());
+      }
+    }
     return sensorSetId;
   }
 
@@ -282,6 +311,13 @@ public List<Network> getListOfNetworks() {
   }
 
   public Long getActuatorSetId() {
+    // if the actuator set id is not set, try and get it from actuator set
+    if (actuatorSetId == null) {
+      ActuatorSet actuatorSet = getActuatorSet();
+      if (actuatorSet != null) {
+        setActuatorSetId(actuatorSet.getId());
+      }
+    }
     return actuatorSetId;
   }
 
@@ -289,7 +325,30 @@ public List<Network> getListOfNetworks() {
     this.actuatorSetId = actuatorSetId;
   }
 
+  public Long getControllerSetId() {
+    // if the controller set id is not set, try and get it from controller set
+    if (controllerSetId == null) {
+      ControllerSet controllerSet = getControllerSet();
+      if (controllerSet != null) {
+        setControllerSetId(controllerSet.getId());
+      }
+    }
+    return controllerSetId;
+  }
+
+  public void setControllerSetId(Long controllerSetId) {
+    this.controllerSetId = controllerSetId;
+  }
+
+
   public Long getRouteSetId() {
+    // if the route set id is not set, try and get it from route set
+    if (routeSetId == null) {
+      RouteSet routeSet = getRouteSet();
+      if (routeSet != null) {
+        setRouteSetId(routeSet.getId());
+      }
+    }
     return routeSetId;
   }
 

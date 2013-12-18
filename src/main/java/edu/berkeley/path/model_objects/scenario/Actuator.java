@@ -36,6 +36,8 @@ import edu.berkeley.path.model_objects.shared.*;
  */
 public class Actuator extends edu.berkeley.path.model_objects.jaxb.Actuator {
 
+  /** @y.exclude */  private Long parametersId;
+
   /**
    * Check to make sure all actuator is valid
    *
@@ -347,6 +349,24 @@ public class Actuator extends edu.berkeley.path.model_objects.jaxb.Actuator {
     type.setName(name);
     type.setDescription(desc);
     super.setUsageType(type);
+  }
+
+  /**
+   * Get the parameters config id associated with this actuator
+   *
+   * @return parameters config id
+   */
+  public Long getParametersId() {
+    return parametersId;
+  }
+
+  /**
+   * Set the parameters config id associated with this actuator
+   *
+   * @param parametersId of its actuator parameters
+   */
+  public void setParametersId(Long parametersId) {
+    this.parametersId = parametersId;
   }
 
 }
